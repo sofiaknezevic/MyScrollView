@@ -25,8 +25,6 @@
     
     self.scrollView = [[MyScrollView alloc] initWithFrame:self.view.frame];
     
-    self.scrollView.contentSize = self.view.frame.size;
-    
     [self.view addSubview:self.scrollView];
     
     //red view
