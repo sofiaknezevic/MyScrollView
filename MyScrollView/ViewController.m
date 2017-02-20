@@ -25,6 +25,8 @@
     
     self.scrollView = [[MyScrollView alloc] initWithFrame:self.view.frame];
     
+    self.scrollView.contentSize = self.view.frame.size;
+    
     [self.view addSubview:self.scrollView];
     
     //red view
@@ -49,16 +51,18 @@
     
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    
-    [super viewDidAppear:animated];
-    
-    CGRect frame = self.view.bounds;
-    frame.origin.y += 100.0f;
-    self.view.bounds = frame;
-    
-}
+
+//
+//- (void)viewDidAppear:(BOOL)animated
+//{
+//    
+//    [super viewDidAppear:animated];
+//    
+//    CGRect frame = self.view.bounds;
+//    frame.origin.y += 100.0f;
+//    self.view.bounds = frame;
+//    
+//}
 
 
 - (void)didReceiveMemoryWarning {

@@ -31,17 +31,16 @@
         self.startPoint = self.bounds.origin.y;
     }
     
-    self.bounds = CGRectMake(self.bounds.origin.x, self.startPoint + [panGesture translationInView:self].y, self.bounds.size.width, self.bounds.size.height);
+
+        
+    self.bounds = CGRectMake(self.bounds.origin.x, self.startPoint + [panGesture translationInView:self].y, self.contentSize.width, self.contentSize.height);
+
+
+
     
-//    if(self.bounds.origin.y <= 0){
-//        
-//        self.bounds = CGRectMake(self.bounds.origin.x, 0, self.bounds.size.width, self.bounds.size.height);
-//        
-//    } else if (self.bounds.origin.y >= self.contentSize.height - [[UIScreen mainScreen] bounds].size.height) {
-//        
-//        self.bounds = CGRectMake(self.bounds.origin.x, self.contentSize.height - [[UIScreen mainScreen] bounds].size.height, self.bounds.size.width, self.bounds.size.height);
-//        
-//    }
+    
+
+    
     
 }
 
