@@ -10,13 +10,46 @@
 
 @interface ViewController ()
 
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    UIView *newView = [[UIView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:newView];
+    
+    //red view
+    UIView *redView = [[UIView alloc] initWithFrame:CGRectMake(20, 20, 100, 100)];
+    redView.backgroundColor = [UIColor redColor];
+    [newView addSubview:redView];
+    
+    //green view
+    UIView *greenView = [[UIView alloc] initWithFrame:CGRectMake(150, 150, 150, 200)];
+    greenView.backgroundColor = [UIColor greenColor];
+    [newView addSubview:greenView];
+    
+    //blue view
+    UIView *blueView = [[UIView alloc] initWithFrame:CGRectMake(40, 400, 200, 150)];
+    blueView.backgroundColor = [UIColor blueColor];
+    [newView addSubview:blueView];
+    
+    //yellow view
+    UIView *yellowView = [[UIView alloc] initWithFrame:CGRectMake(100, 600, 180, 150)];
+    yellowView.backgroundColor = [UIColor yellowColor];
+    [newView addSubview:yellowView];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    
+    CGRect frame = self.view.bounds;
+    frame.origin.y += 100.0f;
+    self.view.bounds = frame;
+    
 }
 
 
