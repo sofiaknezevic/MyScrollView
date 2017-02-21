@@ -18,7 +18,7 @@
         self.userInteractionEnabled = YES;
         _panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panScreen:)];
         [self addGestureRecognizer:_panGesture];
-        _contentSize = CGSizeMake(300, 700);
+        _contentSize = frame.size;
         
         
     }
@@ -33,11 +33,34 @@
         self.startPoint = self.bounds.origin.y;
     }
 
+    CGFloat minY = 0;
+    CGFloat maxY = self.frame.size.height;
+    
+    if ((self.startPoint + [panGesture translationInView:self].y)<0) {
         
-    self.bounds = CGRectMake(self.bounds.origin.x,
-                             self.startPoint + [panGesture translationInView:self].y,
-                             self.contentSize.width,
-                             self.contentSize.height);
+        
+        self.bounds = CGRectMake(self.bounds.origin.x,
+                                 minY,
+                                 self.contentSize.width,
+                                 self.contentSize.height);
+        
+    }else if ((self.startPoint + [panGesture translationInView:self].y)>maxY){
+        
+        
+        self.bounds = CGRectMake(self.bounds.origin.x,
+                                 maxY,
+                                 self.contentSize.width,
+                                 self.contentSize.height);
+        
+    }else{
+        
+        
+        self.bounds = CGRectMake(self.bounds.origin.x,
+                                 self.startPoint + [panGesture translationInView:self].y,
+                                 self.contentSize.width,
+                                 self.contentSize.height);
+        
+    }
 
 
 
