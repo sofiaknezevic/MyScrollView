@@ -18,7 +18,7 @@
         self.userInteractionEnabled = YES;
         _panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panScreen:)];
         [self addGestureRecognizer:_panGesture];
-        _contentSize = frame.size;
+        _contentSize = CGSizeMake(frame.size.width, frame.size.height-50);
         
         
     }
@@ -35,6 +35,7 @@
 
     CGFloat minY = 0;
     CGFloat maxY = self.frame.size.height;
+    
     
     if ((self.startPoint + [panGesture translationInView:self].y)<0) {
         
